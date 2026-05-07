@@ -1,11 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { motion } from "framer-motion";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 
 const ParticleField = dynamic(() => import("./ParticleField"), { ssr: false });
+const HeroGlobe = dynamic(() => import("./HeroGlobe"), { ssr: false });
 
 const roles = [
   "Biomedical Researcher",
@@ -13,55 +14,9 @@ const roles = [
   "Entrepreneur",
   "Humanitarian",
   "Patent Inventor",
-  "UN Speaker",
+  "UN Representative",
 ];
 
-const stats = [
-  { value: 3,   suffix: "",   label: "Peer-Reviewed Publications" },
-  { value: 1,   suffix: "",   label: "Patent" },
-  { text: "UN",               label: "Representative" },
-  { value: 500, suffix: "+",  label: "Pizzas Made" },
-];
-
-function Counter({ value, suffix }: { value: number; suffix: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const isDecimal = value % 1 !== 0;
-          const duration = 1800;
-          const steps = 60;
-          const increment = value / steps;
-          let current = 0;
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= value) {
-              setCount(value);
-              clearInterval(timer);
-            } else {
-              setCount(isDecimal ? parseFloat(current.toFixed(1)) : Math.floor(current));
-            }
-          }, duration / steps);
-        }
-      },
-      { threshold: 0.5 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [value]);
-
-  const display = value % 1 !== 0 ? count.toFixed(1) : count;
-  return (
-    <span ref={ref} className="counter">
-      {display}{suffix}
-    </span>
-  );
-}
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -112,22 +67,33 @@ export default function Hero() {
               Hello, I&apos;m
             </motion.p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-lightest leading-[1.15] pb-1 mb-2"
-            >
-              Aaryasinh
-            </motion.h1>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text-gold leading-[1.15] pb-2 mb-6"
-            >
-              Vaghela
-            </motion.h1>
+            {/* Name + inline globe on mobile */}
+            <div className="flex items-center gap-3 sm:block mb-2 sm:mb-0">
+              <div className="flex-1 min-w-0">
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.8 }}
+                  className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-slate-lightest leading-[1.15] pb-1"
+                >
+                  Aaryasinh
+                </motion.h1>
+                <motion.h1
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.8 }}
+                  className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text-gold leading-[1.15] pb-2 sm:mb-6"
+                >
+                  Vaghela
+                </motion.h1>
+              </div>
+              {/* Globe only visible on mobile, locked beside the name */}
+              <div className="sm:hidden w-28 h-28 shrink-0">
+                <Suspense fallback={null}>
+                  <HeroGlobe />
+                </Suspense>
+              </div>
+            </div>
 
             {/* Stanford badge */}
             <motion.div
@@ -169,7 +135,9 @@ export default function Hero() {
               className="flex flex-wrap gap-4"
             >
               <a
-                href="#research"
+                href="https://scholar.google.com/citations?user=zZgfirMAAAAJ&hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-7 py-3 bg-gold text-navy-darkest font-semibold rounded-lg hover:bg-gold-light transition-all duration-300 hover:shadow-lg hover:shadow-gold/30 hover:-translate-y-0.5"
               >
                 View Research

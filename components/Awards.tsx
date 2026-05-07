@@ -15,7 +15,7 @@ const awards = [
     color: "#C9A84C",
   },
   {
-    title: "United Nations Speaker",
+    title: "United Nations Representative",
     subtitle: "18th Convention on Rights of Persons with Disabilities",
     detail: "Represented Jaipur Foot USA to 98 nations · $75K raised",
     date: "Jun 2025",

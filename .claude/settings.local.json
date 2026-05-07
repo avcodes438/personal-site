@@ -10,7 +10,10 @@
       "Bash(export PATH=\"$PATH:/opt/homebrew/bin\")",
       "Bash(pkill -f \"next dev\")",
       "Bash(npm run *)",
-      "Read(//tmp/**)"
+      "Read(//tmp/**)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }
