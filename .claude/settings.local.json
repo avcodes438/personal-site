@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/Aarya/Desktop/Personal_site/assets)",
+      "Bash(cp \"/Users/Aarya/Desktop/Screenshot 2026-05-07 at 10.02.10 AM.png\" /Users/Aarya/Desktop/Personal_site/assets/headshot.png)",
+      "Read(//Users/Aarya/.nvm/versions/**)",
+      "Read(//Users/Aarya/.volta/**)",
+      "Read(//opt/homebrew/bin/**)",
+      "Bash(rsync -a \"/Users/Aarya/Desktop/Aarya MacBookPro Data Dump/Downloads/2022-Dec 2024 Downloads/2021-koenigsegg-jesko-absolut/source/final_Model/\" /Users/Aarya/Desktop/Personal_site/public/koenigsegg/)",
+      "Bash(export PATH=\"$PATH:/opt/homebrew/bin\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(npm run *)",
+      "Read(//tmp/**)"
+    ]
+  }
+}
