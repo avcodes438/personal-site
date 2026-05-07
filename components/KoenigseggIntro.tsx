@@ -224,7 +224,7 @@ export default function KoenigseggIntro() {
           initial={{ opacity: 0 }}
           animate={{ opacity: fadeOut ? 0 : 1 }}
           transition={{ duration: fadeOut ? 0.8 : 0.8 }}
-          className="fixed top-20 left-0 w-full h-[38vh] sm:h-[50vh] z-[100] pointer-events-none overflow-hidden"
+          className="hidden sm:block fixed top-20 left-0 w-full h-[50vh] z-[100] pointer-events-none overflow-hidden"
         >
           <Canvas
             camera={{ position: [0, 0, 7], fov: 50 }}
