@@ -17,10 +17,10 @@ const roles = [
 ];
 
 const stats = [
-  { value: 3, suffix: "", label: "Peer-Reviewed Publications" },
-  { value: 14, suffix: "", label: "AP Exam 5s" },
-  { value: 350, suffix: "+", label: "Volunteer Hours" },
-  { value: 2.3, suffix: "M+", label: "Lives Impacted" },
+  { value: 3,   suffix: "",   label: "Peer-Reviewed Publications" },
+  { value: 1,   suffix: "",   label: "Patent" },
+  { text: "UN",               label: "Representative" },
+  { value: 500, suffix: "+",  label: "Pizzas Made" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -129,6 +129,26 @@ export default function Hero() {
               Vaghela
             </motion.h1>
 
+            {/* Stanford badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="flex items-center gap-4 mb-6 relative z-[101]"
+            >
+              <Image
+                src="/stanford-logo.png"
+                alt="Stanford University"
+                width={72}
+                height={72}
+                className="rounded-xl shrink-0"
+              />
+              <div>
+                <p className="text-slate-lightest font-semibold text-xl tracking-wide leading-tight">Stanford University</p>
+                <p className="font-mono text-sm text-slate-muted tracking-wide mt-0.5">Class of 2030 &nbsp;·&nbsp; BS CS + Bioengineering</p>
+              </div>
+            </motion.div>
+
             {/* Typewriter */}
             <motion.div
               initial={{ opacity: 0 }}
@@ -189,27 +209,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Stats strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.1 }}
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {stats.map((stat, i) => (
-            <div
-              key={stat.label}
-              className="glass rounded-2xl p-6 text-center glass-hover"
-            >
-              <p className="font-serif text-4xl font-bold gradient-text-gold mb-1">
-                <Counter value={stat.value} suffix={stat.suffix} />
-              </p>
-              <p className="text-slate-muted text-xs uppercase tracking-wider">
-                {stat.label}
-              </p>
-            </div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}

@@ -1,8 +1,8 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import Research from "@/components/Research";
-import Publications from "@/components/Publications";
+import Tagline from "@/components/Tagline";
 import Experience from "@/components/Experience";
+import Publications from "@/components/Publications";
 import Awards from "@/components/Awards";
 import Service from "@/components/Service";
 import Athletics from "@/components/Athletics";
@@ -19,9 +19,9 @@ export default function Home() {
       <KoenigseggIntro />
       <Nav />
       <Hero />
-      <Research />
-      <Publications />
+      <Tagline />
       <Experience />
+      <Publications />
       <Awards />
       <Service />
       <Athletics />

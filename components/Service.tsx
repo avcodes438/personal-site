@@ -82,11 +82,11 @@ function ServiceCard({ item, index }: { item: typeof service[0]; index: number }
       </div>
 
       {/* Stats row */}
-      <div className="grid grid-cols-4 gap-3 mb-6 p-4 rounded-xl" style={{ background: item.color + "08" }}>
+      <div className="grid grid-cols-4 gap-2 mb-6 p-4 rounded-xl" style={{ background: item.color + "08" }}>
         {item.stats.map((stat) => (
           <div key={stat.label} className="text-center">
-            <p className="font-bold text-lg" style={{ color: item.color }}>{stat.value}</p>
-            <p className="font-mono text-xs text-slate-muted">{stat.label}</p>
+            <p className="font-bold text-base leading-tight" style={{ color: item.color }}>{stat.value}</p>
+            <p className="font-mono text-[10px] text-slate-muted leading-tight mt-0.5 break-words">{stat.label}</p>
           </div>
         ))}
       </div>
