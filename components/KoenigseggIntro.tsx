@@ -7,7 +7,7 @@ import * as THREE from "three";
 
 // ─── Timing ───────────────────────────────────────────────────────────────────
 const FADE_IN_END = 1.0;
-const ANIM_END    = 8.0;
+const ANIM_END    = 4.0;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 function clamp(v: number, lo: number, hi: number) { return Math.max(lo, Math.min(hi, v)); }
@@ -224,7 +224,7 @@ export default function KoenigseggIntro() {
           initial={{ opacity: 0 }}
           animate={{ opacity: fadeOut ? 0 : 1 }}
           transition={{ duration: fadeOut ? 0.8 : 0.8 }}
-          className="fixed top-0 left-0 w-full h-[38vh] sm:h-[55vh] z-[100] pointer-events-none overflow-hidden"
+          className="fixed top-20 left-0 w-full h-[38vh] sm:h-[50vh] z-[100] pointer-events-none overflow-hidden"
         >
           <Canvas
             camera={{ position: [0, 0, 7], fov: 50 }}
