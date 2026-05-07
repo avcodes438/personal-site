@@ -2,7 +2,9 @@
 const nextConfig = {
   transpilePackages: ['three'],
   images: {
-    domains: ['img.shields.io'],
+    remotePatterns: [
+      { protocol: 'https', hostname: 'img.shields.io' },
+    ],
   },
 };
 

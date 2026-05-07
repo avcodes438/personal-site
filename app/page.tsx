@@ -9,14 +9,14 @@ import Athletics from "@/components/Athletics";
 import Contact from "@/components/Contact";
 import dynamic from "next/dynamic";
 
-const KoenigseggIntro = dynamic(() => import("@/components/KoenigseggIntro"), {
+const MoleculeIntro = dynamic(() => import("@/components/MoleculeIntro"), {
   ssr: false,
 });
 
 export default function Home() {
   return (
     <main>
-      <KoenigseggIntro />
+      <MoleculeIntro />
       <Nav />
       <Hero />
       <Tagline />

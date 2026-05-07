@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 
 const ParticleField = dynamic(() => import("./ParticleField"), { ssr: false });
-const HeroGlobe = dynamic(() => import("./HeroGlobe"), { ssr: false });
+const HeroMolecule = dynamic(() => import("./HeroMolecule"), { ssr: false });
 
 const roles = [
   "Biomedical Researcher",
@@ -90,7 +90,7 @@ export default function Hero() {
               {/* Globe only visible on mobile, locked beside the name */}
               <div className="sm:hidden w-28 h-28 shrink-0">
                 <Suspense fallback={null}>
-                  <HeroGlobe />
+                  <HeroMolecule />
                 </Suspense>
               </div>
             </div>
