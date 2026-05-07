@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 
 function Particles() {
-  const mesh = useRef<THREE.Points>(null);
+  const mesh = useRef<THREE.Group>(null);
   const { mouse, viewport } = useThree();
 
   const [positions, connections] = useMemo(() => {
